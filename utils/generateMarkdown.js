@@ -81,20 +81,30 @@ function generateMarkdown(data) {
     markDownFile += `Provide product features here.\n\n`;
   }
 
-  // How to Contribute
+  // Contributing
   if (data.addContribute) {
-    markDownFile += `## How to Contribute\n\n`;
-    markDownFile += `Let other developers know how to contribute ot your application or package.\n\n`;
+    markDownFile += `## Contributing Guidelines\n\n`;
+    markDownFile += `Let other developers know how to contribute to your application or package.\n\n`;
   }
 
   // Tests
   if (data.addTests) {
-    markDownFile += `## Tests\n\n`;
+    markDownFile += `## Test Instructions\n\n`;
     markDownFile += `Provide tests and examples of how to run your application.\n\n`;
   }
 
+  // Questions
+  if (data.addQuestions) {
+    markDownFile += `## Questions\n\n`;
+    markDownFile += `Let other developers know how to contact you for questions, comments, or suggestions.\n\n`;
+  }
+
   // if (data.addLicense) {
-  markDownFile += renderLicenseSection(data.projectTypeOfLicense);
+  // License
+  markDownFile += `## License\n\n`;
+  markDownFile += `This application is licensed under the following license:\n\n`;
+  markDownFile += renderLicenseSection(data.projectTypeOfLicense) + "\n\n";
+  markDownFile += `For more information, please follow the link provided above.`;
   // }
 
   return markDownFile;

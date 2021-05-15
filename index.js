@@ -137,6 +137,12 @@ const questions = [
     message: "Do you want to include a section for tests?",
   },
   {
+    type: "confirm",
+    name: "addQuestions",
+    message:
+      "Do you want to include a section for questions, comments, or suggestions?",
+  },
+  {
     type: "input",
     name: "fileName",
     message: "Enter the filename where to save the blueprint",
