@@ -96,7 +96,7 @@ function generateMarkdown(data) {
   // Contact Information
   if (data.addContactInformation) {
     markDownFile += `## Contact Information\n\n`;
-    markDownFile += `For questions, comments, or suggestions, please contact by E-Mail:\n\n`;
+    markDownFile += `For questions, comments, or suggestions, please contact me by E-Mail:\n\n`;
     markDownFile += `${data.projectEmailAddress}\n\n`;
     markDownFile += `Check out my other **cool** projects in GitHub - ${data.projectGitHubUsername}\n\n`;
   }

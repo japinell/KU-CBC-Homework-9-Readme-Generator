@@ -166,7 +166,7 @@ const questions = [
     type: "input",
     name: "fileName",
     message: "Enter the filename where to save the blueprint: ",
-    default: "README.md",
+    default: "README-blueprint.md",
   },
 ];
 
