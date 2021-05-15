@@ -18,17 +18,17 @@ const questions = [
     name: "projectTitle",
     message:
       "\n\n---------- BASIC REQUIREMENTS ----------\n\nEnter the project title:",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
   },
   {
     type: "input",
     name: "projectDescription",
     message: "Enter the project description:",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
   },
   {
     type: "confirm",
@@ -40,9 +40,9 @@ const questions = [
     name: "projectMotivation",
     message:
       "\n\n---------- BASIC REQUIREMENTS > PROJECT DESCRIPTION -> ADDITIONAL QUESTIONS ----------\n\nWhat was your motivation for the project?",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
     when: function (answers) {
       return answers.addContent;
     },
@@ -51,9 +51,9 @@ const questions = [
     type: "input",
     name: "projectReason",
     message: "Why did you build the project?",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
     when: function (answers) {
       return answers.addContent;
     },
@@ -62,9 +62,9 @@ const questions = [
     type: "input",
     name: "projectProblemAddressed",
     message: "What problem does the project solve?",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
     when: function (answers) {
       return answers.addContent;
     },
@@ -73,9 +73,9 @@ const questions = [
     type: "input",
     name: "projectLessons",
     message: "What did you learn while building the project?",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
     when: function (answers) {
       return answers.addContent;
     },
@@ -84,9 +84,9 @@ const questions = [
     type: "input",
     name: "projectDifferentiator",
     message: "What makes your project stand out?",
-    validate: (answer) => {
-      return validateAlphaNumericInput(answer);
-    },
+    // validate: (answer) => {
+    //   return validateAlphaNumericInput(answer);
+    // },
     when: function (answers) {
       return answers.addContent;
     },
@@ -97,11 +97,6 @@ const questions = [
     message:
       "\n\n---------- OPTIONAL REQUIREMENTS ----------\n\nDo you want to include a section for the table of content?",
   },
-  // {
-  //   type: "confirm",
-  //   name: "addLicense",
-  //   message: "Do you want to include a badge for the type of license?",
-  // },
   {
     type: "list",
     name: "projectTypeOfLicense",
@@ -117,9 +112,6 @@ const questions = [
     validate: function (answer) {
       return answer.key;
     },
-    // when: function (answer) {
-    //   return answer.addLicense;
-    // },
   },
   {
     type: "confirm",
