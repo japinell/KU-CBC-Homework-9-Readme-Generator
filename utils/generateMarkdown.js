@@ -47,6 +47,7 @@ function generateMarkdown(data) {
 
   // Description
   markDownFile += `## Description\n\n`;
+  markDownFile += `${data.projectDescription}\n\n`;
 
   if (data.addContent) {
     markDownFile += `- Project Motivation: ${data.projectMotivation}\n`;
@@ -56,8 +57,8 @@ function generateMarkdown(data) {
     markDownFile += `- Project Differentiator: ${data.projectDifferentiator}\n\n`;
   }
 
+  // Table of Contents
   if (data.addTableOfContent) {
-    // Table of Contents
     markDownFile += `## Table of Contents\n\n`;
     markDownFile += `- [Installation](#installation)\n`;
     markDownFile += `- [Usage](#usage)\n`;
@@ -75,18 +76,26 @@ function generateMarkdown(data) {
   }
 
   // Features
-  markDownFile += `## Features\n\n`;
-  markDownFile += `Provide product features here.`;
+  if (data.addFeatures) {
+    markDownFile += `## Features\n\n`;
+    markDownFile += `Provide product features here.\n\n`;
+  }
 
   // How to Contribute
-  markDownFile += `## How to Contribute\n\n`;
-  markDownFile += `Let other developers know how to contribute ot your application or package.\n\n`;
+  if (data.addContribute) {
+    markDownFile += `## How to Contribute\n\n`;
+    markDownFile += `Let other developers know how to contribute ot your application or package.\n\n`;
+  }
 
   // Tests
-  markDownFile += `## Tests\n\n`;
-  markDownFile += `Provide tests and examples of how to run your application.\n\n`;
+  if (data.addTests) {
+    markDownFile += `## Tests\n\n`;
+    markDownFile += `Provide tests and examples of how to run your application.\n\n`;
+  }
 
-  markDownFile += renderLicenseSection(data.projectTypeOfLicense);
+  if (data.addLicense) {
+    markDownFile += renderLicenseSection(data.projectTypeOfLicense);
+  }
 
   return markDownFile;
 }
