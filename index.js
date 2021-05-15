@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Packages needed for the application
 const inquirer = require("inquirer");
 const fs = require("fs");
 const utils = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
+// Array of questions for user input
 const questions = [
   {
     type: "input",
@@ -104,10 +104,19 @@ const questions = [
     type: "list",
     name: "projectTypeOfLicense",
     message: "What type of license do you want to include?",
-    choices: ["Apache-2.0", "CCO-4.0", "GNU-GPL-3.0", "MIT", "Mozilla-2.0"],
+    choices: [
+      { value: "A2", name: "Apache 2.0 License" },
+      { value: "C4", name: "Creative Commons - Attribution 4.0 International" },
+      { value: "G3", name: "GNU GPL V3" },
+      { value: "M", name: "The MIT License" },
+      { value: "M2", name: "Mozilla Public License 2.0" },
+    ],
     default: "MIT",
-    when: function (answers) {
-      return answers.addLicense;
+    validate: function (answer) {
+      return answer.key;
+    },
+    when: function (answer) {
+      return answer.addLicense;
     },
   },
   {
@@ -156,15 +165,18 @@ function validateNumericInput(input) {
   } else return message;
 }
 
-// TODO: Create a function to write README file
+// Write the README file
 function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
+// Initialize the application
 function init() {
   inquirer.prompt(questions).then((answers) => {
+    const fileName = ".README.md";
     console.log(JSON.stringify(answers, null, "  "));
+    //utils.generateMarkdown(answers);
+    //writeToFile(fileName, answers);
   });
 }
 
-// Function call to initialize app
+// Rock & Roll!
 init();
