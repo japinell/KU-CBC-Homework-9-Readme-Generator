@@ -117,9 +117,9 @@ const questions = [
     validate: function (answer) {
       return answer.key;
     },
-    when: function (answer) {
-      return answer.addLicense;
-    },
+    // when: function (answer) {
+    //   return answer.addLicense;
+    // },
   },
   {
     type: "confirm",
