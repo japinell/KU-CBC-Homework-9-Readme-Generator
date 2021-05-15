@@ -7,7 +7,7 @@ const utils = require("./utils/generateMarkdown");
 const questions = [
   {
     type: "input",
-    name: "continue",
+    name: "label",
     message:
       "\n\n---------- README GENERATOR ----------\n\nThe following questions will be used to generate the blueprint for a professional Readme File.\nPress enter to continue...",
   },
@@ -25,21 +25,21 @@ const questions = [
     name: "projectDescription",
     message: "Enter the project description:",
     validate: (answer) => {
-      return validateAlphaInput(answer);
+      return validateAlphaNumericInput(answer);
     },
   },
   {
     type: "confirm",
     name: "addContent",
-    message:
-      "\n\n---------- BASIC REQUIREMENTS > OPTIONAL QUESTIONS ----------\n\nDo you want to add content along with the project description?",
+    message: "Do you want to add content along with the project description?",
   },
   {
     type: "input",
     name: "projectMotivation",
-    message: "What was your motivation for the project?",
+    message:
+      "\n\n---------- BASIC REQUIREMENTS > PROJECT DESCRIPTION -> ADDITIONAL QUESTIONS ----------\n\nWhat was your motivation for the project?",
     validate: (answer) => {
-      return validateAlphaInput(answer);
+      return validateAlphaNumericInput(answer);
     },
     when: function (answers) {
       return answers.addContent;
@@ -50,7 +50,7 @@ const questions = [
     name: "projectWhy",
     message: "Why did you build the project?",
     validate: (answer) => {
-      return validateAlphaInput(answer);
+      return validateAlphaNumericInput(answer);
     },
     when: function (answers) {
       return answers.addContent;
@@ -61,7 +61,7 @@ const questions = [
     name: "projectProblemAddressed",
     message: "What problem does the project solve?",
     validate: (answer) => {
-      return validateAlphaInput(answer);
+      return validateAlphaNumericInput(answer);
     },
     when: function (answers) {
       return answers.addContent;
@@ -72,7 +72,7 @@ const questions = [
     name: "projectLessons",
     message: "What did you learn while building the project?",
     validate: (answer) => {
-      return validateAlphaInput(answer);
+      return validateAlphaNumericInput(answer);
     },
     when: function (answers) {
       return answers.addContent;
@@ -83,7 +83,7 @@ const questions = [
     name: "projectDifferentiator",
     message: "What makes your project stand out?",
     validate: (answer) => {
-      return validateAlphaInput(answer);
+      return validateAlphaNumericInput(answer);
     },
     when: function (answers) {
       return answers.addContent;
@@ -101,13 +101,11 @@ const questions = [
     message: "Do you want to include a badge for the type of license?",
   },
   {
-    type: "input",
+    type: "list",
     name: "projectTypeOfLicense",
     message: "What type of license do you want to include?",
+    choices: ["Apache-2.0", "CCO-4.0", "GNU-GPL-3.0", "MIT", "Mozilla-2.0"],
     default: "MIT",
-    validate: (answer) => {
-      return validateAlphaInput(answer);
-    },
     when: function (answers) {
       return answers.addLicense;
     },
@@ -134,7 +132,7 @@ function validateAlphaNumericInput(input) {
   let message =
     "Please enter two or more words with at least one letter or digit";
   if (input.length > 0) {
-    return input.match(/^[a-zA-Z0-9]{1,}[\s]{1,}[a-zA-Z0-9]{1,}$/g)
+    return input.match(/^[a-zA-Z0-9]{1,}[\s]{1,}[a-zA-Z0-9]{1,}\w*/g)
       ? true
       : message;
   } else return message;
@@ -144,7 +142,9 @@ function validateAlphaNumericInput(input) {
 function validateAlphaInput(input) {
   let message = "Please enter two or more words with letters only";
   if (input.length > 0) {
-    return input.match(/^[a-zA-Z]{1,}[\s]{1,}[a-zA-Z]{1,}$/g) ? true : message;
+    return input.match(/^[a-zA-Z]{1,}[\s]{1,}[a-zA-Z]{1,}\w*/g)
+      ? true
+      : message;
   } else return message;
 }
 
@@ -152,7 +152,7 @@ function validateAlphaInput(input) {
 function validateNumericInput(input) {
   let message = "Please enter two or more words with digits only";
   if (input.length > 0) {
-    return input.match(/^[0-9]{1,}[\s]{1,}[0-9]{1,}$/g) ? true : message;
+    return input.match(/^[0-9]{1,}[\s]{1,}[0-9]{1,}\w*/g) ? true : message;
   } else return message;
 }
 
