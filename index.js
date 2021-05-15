@@ -11,7 +11,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "title",
+    name: "projectTitle",
     message:
       "\n\n---------- BASIC REQUIREMENTS ----------\n\nEnter the project title:",
     validate: (answer) => {
@@ -20,7 +20,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "description",
+    name: "projectDescription",
     message: "Enter the project description:",
     validate: (answer) => {
       return validateAlphaInput(answer);
@@ -28,28 +28,89 @@ const questions = [
   },
   {
     type: "confirm",
-    name: "tableOfContent",
-    message: "Do you want to include a table of content?",
-  },
-  {
-    type: "confirm",
-    name: "license",
+    name: "addContent",
     message:
-      "\n\n---------- OPTIONAL REQUIREMENTS ----------\n\nDo you want to include a badge for the type of license?",
+      "\n\n---------- BASIC REQUIREMENTS > OPTIONAL QUESTIONS ----------\n\nDo you want to add content along with the project description?",
+  },
+  {
+    type: "input",
+    name: "projectMotivation",
+    message: "What was your motivation for the project?",
+    validate: (answer) => {
+      return validateAlphaInput(answer);
+    },
+    when: function (answers) {
+      return answers.addContent;
+    },
+  },
+  {
+    type: "input",
+    name: "projectWhy",
+    message: "Why did you build the project?",
+    validate: (answer) => {
+      return validateAlphaInput(answer);
+    },
+    when: function (answers) {
+      return answers.addContent;
+    },
+  },
+  {
+    type: "input",
+    name: "projectProblemAddressed",
+    message: "What problem does the project solve?",
+    validate: (answer) => {
+      return validateAlphaInput(answer);
+    },
+    when: function (answers) {
+      return answers.addContent;
+    },
+  },
+  {
+    type: "input",
+    name: "projectLessons",
+    message: "What did you learn while building the project?",
+    validate: (answer) => {
+      return validateAlphaInput(answer);
+    },
+    when: function (answers) {
+      return answers.addContent;
+    },
+  },
+  {
+    type: "input",
+    name: "projectDifferentiator",
+    message: "What makes your project stand out?",
+    validate: (answer) => {
+      return validateAlphaInput(answer);
+    },
+    when: function (answers) {
+      return answers.addContent;
+    },
   },
   {
     type: "confirm",
-    name: "features",
+    name: "addTableOfContent",
+    message:
+      "\n\n---------- OPTIONAL REQUIREMENTS ----------\n\nDo you want to include a section for the table of content?",
+  },
+  {
+    type: "confirm",
+    name: "addLicense",
+    message: "Do you want to include a badge for the type of license?",
+  },
+  {
+    type: "confirm",
+    name: "addFeatures",
     message: "Do you want to include a section for features?",
   },
   {
     type: "confirm",
-    name: "contribute",
+    name: "addContribute",
     message: "Do you want to include a section for contributions?",
   },
   {
     type: "confirm",
-    name: "tests",
+    name: "addTests",
     message: "Do you want to include a section for tests?",
   },
 ];
