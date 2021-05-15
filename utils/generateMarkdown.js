@@ -93,9 +93,9 @@ function generateMarkdown(data) {
     markDownFile += `Provide tests and examples of how to run your application.\n\n`;
   }
 
-  if (data.addLicense) {
-    markDownFile += renderLicenseSection(data.projectTypeOfLicense);
-  }
+  // if (data.addLicense) {
+  markDownFile += renderLicenseSection(data.projectTypeOfLicense);
+  // }
 
   return markDownFile;
 }

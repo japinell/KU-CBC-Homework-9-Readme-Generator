@@ -97,11 +97,11 @@ const questions = [
     message:
       "\n\n---------- OPTIONAL REQUIREMENTS ----------\n\nDo you want to include a section for the table of content?",
   },
-  {
-    type: "confirm",
-    name: "addLicense",
-    message: "Do you want to include a badge for the type of license?",
-  },
+  // {
+  //   type: "confirm",
+  //   name: "addLicense",
+  //   message: "Do you want to include a badge for the type of license?",
+  // },
   {
     type: "list",
     name: "projectTypeOfLicense",
