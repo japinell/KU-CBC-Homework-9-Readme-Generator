@@ -19,6 +19,7 @@ function renderLicenseBadge(license) {
 // Returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  if (license.trim() === "") return "";
   switch (license) {
     case "A2":
       return `(https://opensource.org/licenses/Apache-2.0)`;
@@ -35,13 +36,15 @@ function renderLicenseLink(license) {
 
 // Returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license.trim() === "") return "";
+  return `${renderLicenseBadge(license)}${renderLicenseLink(license)}`;
+}
 
 // Generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
+  //return `# ${data.title}`;
+  return renderLicenseSection(data.projectTypeOfLicense);
 }
 
 module.exports = generateMarkdown;

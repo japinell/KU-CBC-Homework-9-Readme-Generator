@@ -1,7 +1,9 @@
 // Packages needed for the application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const utils = require("./utils/generateMarkdown");
+const util = require("util");
+const generateMarkdown = require("./utils/generateMarkdown");
+const writeFileAsync = util.promisify(fs.writeFile); // WriteFile using promises instead of a callback function
 
 // Array of questions for user input
 const questions = [
@@ -171,10 +173,11 @@ function writeToFile(fileName, data) {}
 // Initialize the application
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    const fileName = ".README.md";
+    const fileName = "README.md";
     console.log(JSON.stringify(answers, null, "  "));
-    //utils.generateMarkdown(answers);
-    //writeToFile(fileName, answers);
+    writeFileAsync(fileName, generateMarkdown(answers))
+      .then(() => console.log(`Successfully created file ${fileName}.`))
+      .catch((err) => console.error(`Error: ${err}`));
   });
 }
 
