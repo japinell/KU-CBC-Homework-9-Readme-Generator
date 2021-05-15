@@ -49,7 +49,7 @@ Provide tests and examples of how to run your application.
 
 For questions, comments, or suggestions, please contact me by E-Mail:
 
-NOT_PROVIDED@yahoo.com
+japinell@yahoo.com
 
 Check out my other **cool** projects in GitHub - https://github.com/japinell
 
