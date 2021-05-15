@@ -138,14 +138,34 @@ const questions = [
   },
   {
     type: "confirm",
-    name: "addQuestions",
+    name: "addContactInformation",
     message:
       "Do you want to include a section for questions, comments, or suggestions?",
   },
   {
     type: "input",
+    name: "projectGitHubUsername",
+    message: "Enter your GitHub account: ",
+    default: "https://github.com/japinell",
+    when: function (answers) {
+      return answers.addContactInformation;
+    },
+  },
+  {
+    type: "input",
+    name: "projectEmailAddress",
+    message: "Enter your e-Mail address: ",
+    validate: (answer) => {
+      return validateEmailInput(answer);
+    },
+    when: function (answers) {
+      return answers.addContactInformation;
+    },
+  },
+  {
+    type: "input",
     name: "fileName",
-    message: "Enter the filename where to save the blueprint",
+    message: "Enter the filename where to save the blueprint: ",
     default: "README.md",
   },
 ];
@@ -176,6 +196,18 @@ function validateNumericInput(input) {
   let message = "Please enter two or more words with digits only";
   if (input.length > 0) {
     return input.match(/^[0-9]{1,}[\s]{1,}[0-9]{1,}\w*/g) ? true : message;
+  } else return message;
+}
+
+// Validate that the e-Mail address
+function validateEmailInput(input) {
+  let message = "Please enter a valid email address";
+  if (input.length > 0) {
+    return input.match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )
+      ? true
+      : message;
   } else return message;
 }
 

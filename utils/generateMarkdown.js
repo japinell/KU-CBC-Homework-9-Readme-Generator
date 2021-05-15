@@ -93,10 +93,12 @@ function generateMarkdown(data) {
     markDownFile += `Provide tests and examples of how to run your application.\n\n`;
   }
 
-  // Questions
-  if (data.addQuestions) {
-    markDownFile += `## Questions\n\n`;
-    markDownFile += `Let other developers know how to contact you for questions, comments, or suggestions.\n\n`;
+  // Contact Information
+  if (data.addContactInformation) {
+    markDownFile += `## Contact Information\n\n`;
+    markDownFile += `For questions, comments, or suggestions, please contact by E-Mail:\n\n`;
+    markDownFile += `${data.projectEmailAddress}\n\n`;
+    markDownFile += `Check out my other **cool** projects in GitHub - ${data.projectGitHubUsername}\n\n`;
   }
 
   // if (data.addLicense) {

@@ -1,14 +1,8 @@
-# Homework 9 - Readme Generation
+# Project title
 
 ## Description
 
-Professional Readme file Generation
-
-- Project Motivation: I was motivated to build this project because ...
-- Reason: I build this project because ...
-- Problem: This project solves the X problem.
-- Lessons: While building this project, I learnt that ...
-- Project Differentiator: This project is unique because ...
+Project description
 
 ## Table of Contents
 
@@ -45,9 +39,13 @@ Let other developers know how to contribute to your application or package.
 
 Provide tests and examples of how to run your application.
 
-## Questions
+## Contact Information
 
-Let other developers know how to contact you for questions, comments, or suggestions.
+For questions, comments, or suggestions, please contact by E-Mail:
+
+japinell@yahoo.co
+
+Check out my other **cool** projects in GitHub - https://github.com/japinell
 
 ## License
 
