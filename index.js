@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
+const utils = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -99,6 +99,18 @@ const questions = [
     type: "confirm",
     name: "addLicense",
     message: "Do you want to include a badge for the type of license?",
+  },
+  {
+    type: "input",
+    name: "projectTypeOfLicense",
+    message: "What type of license do you want to include?",
+    default: "MIT",
+    validate: (answer) => {
+      return validateAlphaInput(answer);
+    },
+    when: function (answers) {
+      return answers.addLicense;
+    },
   },
   {
     type: "confirm",
