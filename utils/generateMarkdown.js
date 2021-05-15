@@ -34,7 +34,7 @@ function renderLicenseLink(license) {
   }
 }
 
-// Returns the license section of README
+// Returns the license section
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license.trim() === "") return "";
@@ -43,8 +43,52 @@ function renderLicenseSection(license) {
 
 // Generate markdown for README
 function generateMarkdown(data) {
-  //return `# ${data.title}`;
-  return renderLicenseSection(data.projectTypeOfLicense);
+  let markDownFile = `# ${data.projectTitle}\n\n`;
+
+  // Description
+  markDownFile += `## Description\n\n`;
+
+  if (data.addContent) {
+    markDownFile += `- Project Motivation: ${data.projectMotivation}\n`;
+    markDownFile += `- Reason: ${data.projectReason}\n`;
+    markDownFile += `- Problem: ${data.projectProblemAddressed}\n`;
+    markDownFile += `- Lessons: ${data.projectLessons}\n`;
+    markDownFile += `- Project Differentiator: ${data.projectDifferentiator}\n\n`;
+  }
+
+  if (data.addTableOfContent) {
+    // Table of Contents
+    markDownFile += `## Table of Contents\n\n`;
+    markDownFile += `- [Installation](#installation)\n`;
+    markDownFile += `- [Usage](#usage)\n`;
+    markDownFile += `- [Credits](#credits)\n`;
+    markDownFile += `- [License](#license)\n\n`;
+
+    markDownFile += `## Installation\n\n`;
+    markDownFile += `Provide a step-by-step description of how to get the development environment running.\n\n`;
+    markDownFile += `## Usage\n\n`;
+    markDownFile += `Provide instructions and examples for use including screenshots as needed.\n\n`;
+    markDownFile += `## Credits\n\n`;
+    markDownFile += `List collaborators with links to their GitHub profiles.\n\n`;
+    markDownFile += `## License\n\n`;
+    markDownFile += `Let other developers know what they can and cannot do with your project.\n\n`;
+  }
+
+  // Features
+  markDownFile += `## Features\n\n`;
+  markDownFile += `Provide product features here.`;
+
+  // How to Contribute
+  markDownFile += `## How to Contribute\n\n`;
+  markDownFile += `Let other developers know how to contribute ot your application or package.\n\n`;
+
+  // Tests
+  markDownFile += `## Tests\n\n`;
+  markDownFile += `Provide tests and examples of how to run your application.\n\n`;
+
+  markDownFile += renderLicenseSection(data.projectTypeOfLicense);
+
+  return markDownFile;
 }
 
 module.exports = generateMarkdown;

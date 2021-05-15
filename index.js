@@ -49,7 +49,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "projectWhy",
+    name: "projectReason",
     message: "Why did you build the project?",
     validate: (answer) => {
       return validateAlphaNumericInput(answer);
@@ -136,6 +136,12 @@ const questions = [
     name: "addTests",
     message: "Do you want to include a section for tests?",
   },
+  {
+    type: "input",
+    name: "fileName",
+    message: "Enter the filename where to save the blueprint",
+    default: "README.md",
+  },
 ];
 
 // Validate that the input is alpha-numeric with a lenght of 2 or more words, and at least 1 character each word
@@ -168,16 +174,18 @@ function validateNumericInput(input) {
 }
 
 // Write the README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  writeFileAsync(fileName, generateMarkdown(data))
+    .then(() => console.log(`Successfully created file ${fileName}.`))
+    .catch((err) => console.error(`Error: ${err}`));
+}
 
 // Initialize the application
 function init() {
   inquirer.prompt(questions).then((answers) => {
-    const fileName = "README.md";
+    const fileName = answers.fileName;
     console.log(JSON.stringify(answers, null, "  "));
-    writeFileAsync(fileName, generateMarkdown(answers))
-      .then(() => console.log(`Successfully created file ${fileName}.`))
-      .catch((err) => console.error(`Error: ${err}`));
+    writeToFile(fileName, answers);
   });
 }
 
