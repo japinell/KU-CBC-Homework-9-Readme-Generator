@@ -65,7 +65,7 @@ Press the following command in Microsoft Windows, or equivalent commands in Mac 
 CTRL + C
 ```
 
-A link to a walkthrough video demonstrating the application functionality is provided [here](https://drive.google.com/file/d/1bFuIJhJ7j11KFvO-KGBXWpACNW1fzgn9/view).
+A link to a walkthrough video demonstrating the application functionality is provided [here](https://drive.google.com/file/d/1JgqGP5NtRl3KXU8ID2EaU0vYTp6aNsJf/view).
 
 ## Credits
 
