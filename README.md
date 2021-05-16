@@ -57,6 +57,8 @@ node index.js
 
 Follow the prompts noticing that some of the questions have pre-defined input values, which means that it is enough for the user to press the ENTER key to accept the default value for that input.
 
+A sample output of the application is provided [here](https://github.com/japinell/KU-CBC-Homework-9-Readme-Generator/blob/main/README-blueprint.md).
+
 Press the following command in Microsoft Windows, or equivalent commands in Mac OS and Linux, to stop the execution of the application:
 
 ```bash
