@@ -245,7 +245,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((answers) => {
     const fileName = answers.fileName;
-    console.log(JSON.stringify(answers, null, "  "));
+    //console.log(JSON.stringify(answers, null, "  "));
     writeToFile(fileName, answers);
   });
 }
