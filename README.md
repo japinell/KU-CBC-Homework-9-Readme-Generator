@@ -99,6 +99,10 @@ Optional sections and sub-sections include:
 
 Although users can enter information pertaining to these sections, the application is not designed to replace a more robust editor like Visual Studio Code or Notepad++. It is highly recommended that the resulting README.md file be edited for further formatting or for including additional sections.
 
+Future development:
+
+- Capture text sections using a more robust user interface.
+
 ## Contributing Guidelines
 
 Want to contribute to this project? You may clone or fork the project in GitHub. Note the licesing information below.

@@ -98,9 +98,10 @@ const questions = [
       "Do you want to add a section for user story and acceptance criteria to your project?",
   },
   {
-    type: "input",
+    type: "editor",
     name: "projectUserStory",
-    message: "Enter a user story for your project: ",
+    message:
+      "Enter a user story for your project (enter text, save the changes, and close the editor): ",
     validate: (answer) => {
       return validateAlphaNumericInput(answer);
     },
@@ -109,9 +110,10 @@ const questions = [
     },
   },
   {
-    type: "input",
+    type: "editor",
     name: "projectAcceptanceCriteria",
-    message: "Enter acceptance criteria for your project: ",
+    message:
+      "Enter acceptance criteria for your project (enter text, save the changes, and close the editor): ",
     validate: (answer) => {
       return validateAlphaNumericInput(answer);
     },

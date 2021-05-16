@@ -55,17 +55,20 @@ function generateMarkdown(data) {
     markDownFile += `**Problem Addressed** - ${data.projectProblemAddressed}\n`;
     markDownFile += `**Lessons Learned** - ${data.projectLessons}\n`;
     markDownFile += `**Project Uniqueness** - ${data.projectUniqueness}\n\n`;
+  }
 
-    if (trim(data.projectUserStory).length > 0) {
+  // Agile
+  if (data.addAgile) {
+    if (data.projectUserStory.length > 0) {
       markDownFile += `### User Story\n\n`;
       markDownFile += "```\n" + data.projectUserStory + "\n";
-      markDownFile += "```";
+      markDownFile += "```\n\n";
     }
 
-    if (trim(data.projectAcceptanceCriteria).length > 0) {
+    if (data.projectAcceptanceCriteria.length > 0) {
       markDownFile += `### Acceptance Criteria\n\n`;
       markDownFile += "```\n" + data.projectAcceptanceCriteria + "\n";
-      markDownFile += "```";
+      markDownFile += "```\n\n";
     }
   }
 
