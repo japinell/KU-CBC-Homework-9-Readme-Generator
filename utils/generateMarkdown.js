@@ -50,11 +50,23 @@ function generateMarkdown(data) {
   markDownFile += `${data.projectDescription}\n\n`;
 
   if (data.addContent) {
-    markDownFile += `- Project Motivation: ${data.projectMotivation}\n`;
-    markDownFile += `- Reason: ${data.projectReason}\n`;
-    markDownFile += `- Problem: ${data.projectProblemAddressed}\n`;
-    markDownFile += `- Lessons: ${data.projectLessons}\n`;
-    markDownFile += `- Project Differentiator: ${data.projectDifferentiator}\n\n`;
+    markDownFile += `**Project Motivation** - ${data.projectMotivation}\n`;
+    markDownFile += `**Project Reason** - ${data.projectReason}\n`;
+    markDownFile += `**Problem Addressed** - ${data.projectProblemAddressed}\n`;
+    markDownFile += `**Lessons Learned** - ${data.projectLessons}\n`;
+    markDownFile += `**Project Uniqueness** - ${data.projectUniqueness}\n\n`;
+
+    if (trim(data.projectUserStory).length > 0) {
+      markDownFile += `### User Story\n\n`;
+      markDownFile += "```\n" + data.projectUserStory + "\n";
+      markDownFile += "```";
+    }
+
+    if (trim(data.projectAcceptanceCriteria).length > 0) {
+      markDownFile += `### Acceptance Criteria\n\n`;
+      markDownFile += "```\n" + data.projectAcceptanceCriteria + "\n";
+      markDownFile += "```";
+    }
   }
 
   // Table of Contents

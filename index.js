@@ -18,17 +18,17 @@ const questions = [
     name: "projectTitle",
     message:
       "\n\n---------- BASIC REQUIREMENTS ----------\n\nEnter the project title:",
-    // validate: (answer) => {
-    //   return validateAlphaNumericInput(answer);
-    // },
+    validate: (answer) => {
+      return validateAlphaNumericInput(answer);
+    },
   },
   {
     type: "input",
     name: "projectDescription",
     message: "Enter the project description:",
-    // validate: (answer) => {
-    //   return validateAlphaNumericInput(answer);
-    // },
+    validate: (answer) => {
+      return validateAlphaNumericInput(answer);
+    },
   },
   {
     type: "confirm",
@@ -82,7 +82,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "projectDifferentiator",
+    name: "projectUniqueness",
     message: "What makes your project stand out?",
     // validate: (answer) => {
     //   return validateAlphaNumericInput(answer);
@@ -93,9 +93,31 @@ const questions = [
   },
   {
     type: "confirm",
-    name: "addTableOfContent",
+    name: "addAgile",
     message:
-      "\n\n---------- OPTIONAL REQUIREMENTS ----------\n\nDo you want to include a section for the table of content?",
+      "Do you want to add a section for user story and acceptance criteria to your project?",
+  },
+  {
+    type: "input",
+    name: "projectUserStory",
+    message: "Enter a user story for your project: ",
+    validate: (answer) => {
+      return validateAlphaNumericInput(answer);
+    },
+    when: function (answers) {
+      return answers.addAgile;
+    },
+  },
+  {
+    type: "input",
+    name: "projectAcceptanceCriteria",
+    message: "Enter acceptance criteria for your project: ",
+    validate: (answer) => {
+      return validateAlphaNumericInput(answer);
+    },
+    when: function (answers) {
+      return answers.addAgile;
+    },
   },
   {
     type: "list",
@@ -112,6 +134,12 @@ const questions = [
     validate: function (answer) {
       return answer.key;
     },
+  },
+  {
+    type: "confirm",
+    name: "addTableOfContent",
+    message:
+      "\n\n---------- OPTIONAL REQUIREMENTS ----------\n\nDo you want to include a section for the table of content?",
   },
   {
     type: "confirm",
@@ -147,6 +175,7 @@ const questions = [
     type: "input",
     name: "projectEmailAddress",
     message: "Enter your e-Mail address: ",
+    default: "japinell@yahoo.com",
     validate: (answer) => {
       return validateEmailInput(answer);
     },

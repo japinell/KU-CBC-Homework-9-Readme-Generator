@@ -1,14 +1,8 @@
-# Homework - 9 - Readme Generator (Blueprint)
+# 09 Node.js: Professional README Generator
 
 ## Description
 
-Professional Readme Generator
-
-- Project Motivation: I built this project to showcase my skills working with libraries for user input validation, in particular, Inquirer.js.
-- Reason: This project was built to assist me with the generation of README files following a standard and professional blueprint.
-- Problem: The generation of README files in a consistent and professional manner.
-- Lessons: Coding with Inquirer.js can be challenging, but it is also fun.
-- Project Differentiator: This project is unique because it opens other possibilities for using this technology in more complex applications.
+Create a command-line application that dynamically generates a professional README.md file from a user's input using the Inquirer package and that follows the the Professional README Guide as a reminder of everything that a high-quality, professional README should contain.
 
 ## Table of Contents
 
@@ -49,7 +43,7 @@ Provide tests and examples of how to run your application.
 
 For questions, comments, or suggestions, please contact me by E-Mail:
 
-NOT_PROVIDED@yahoo.com
+japinell@yahoo.com
 
 Check out my other **cool** projects in GitHub - https://github.com/japinell
 
