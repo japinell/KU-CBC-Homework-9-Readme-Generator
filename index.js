@@ -222,7 +222,7 @@ function validateNumericInput(input) {
   } else return message;
 }
 
-// Validate that the e-Mail address
+// Validate that the e-Mail address is a valid one
 function validateEmailInput(input) {
   let message = "Please enter a valid email address";
   if (input.length > 0) {
